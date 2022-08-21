@@ -29,7 +29,9 @@ export const LoginForm = () => {
     e.preventDefault();
     dispatch(userLogin({ email, password }));
     toast.success('you are welcome');
-    e.target.reset();
+
+    setEmail('');
+    setPasword('');
   };
 
   return (

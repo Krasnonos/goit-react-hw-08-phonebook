@@ -35,7 +35,10 @@ export const RegisterForm = () => {
       dispatch(userRegistration({ name, email, password }));
     } catch (error) {}
     toast.success(`${name} you have successfully registered`);
-    e.target.reset();
+
+    setName('');
+    setEmail('');
+    setPasword('');
   };
 
   return (
@@ -49,6 +52,7 @@ export const RegisterForm = () => {
           required
           minLength={3}
           maxLength={20}
+          placeholder="Jhon Dou"
         />
         <input
           type="email"
@@ -56,6 +60,7 @@ export const RegisterForm = () => {
           name="email"
           onChange={onChange}
           required
+          placeholder="jhondou@mail.com"
         />
         <input
           type="password"
