@@ -8,7 +8,6 @@ export const contactsSlice = createSlice({
   initialState,
   extraReducers: {
     [getContacts.fulfilled](state, action) {
-      console.log(action);
       state.contacts = action.payload;
     },
   },

@@ -52,11 +52,7 @@ export const refreshUser = createAsyncThunk(
     const persistedToken = state.auth.token;
 
     if (persistedToken === null) {
-      return {
-        user: { name: null, email: null },
-        token: null,
-        isLoggedIn: false,
-      };
+      return { name: null, email: null };
     }
 
     token.set(persistedToken);
