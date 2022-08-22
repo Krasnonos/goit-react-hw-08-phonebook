@@ -6,10 +6,31 @@ export const getContacts = createAsyncThunk(
   async () => {
     try {
       const { data } = await axios('/contacts');
-      console.log(data);
       return data;
     } catch (error) {
       console.log(error);
     }
+  }
+);
+
+export const createContact = createAsyncThunk(
+  'contacts/createContact',
+  async contact => {
+    try {
+      const { data } = await axios.post('/contacts', contact);
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
+
+export const removeContact = createAsyncThunk(
+  'contacts/removeContact',
+  async id => {
+    try {
+      await axios.delete(`/contacts/${id}`);
+      return id;
+    } catch (error) {}
   }
 );
