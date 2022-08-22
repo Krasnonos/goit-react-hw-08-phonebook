@@ -35,5 +35,10 @@ export const authSlice = createSlice({
       state.user = action.payload;
       state.isLoggedIn = true;
     },
+    [refreshUser.rejected](state) {
+      state.user = { name: null, email: null };
+      state.token = null;
+      state.isLoggedIn = false;
+    },
   },
 });

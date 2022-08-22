@@ -7,6 +7,8 @@ import { LoginPage } from '../pages/LoginPage/LoginPage';
 import { RegisterPage } from '../pages/RegisterPage/RegisterPage';
 import { ContactsPage } from '../pages/ContactsPage/ContactsPage';
 import { SharedLayout } from './SharedLayout/SharedLayout';
+import { PrivatRoute } from './PrivatRoute/PrivatRoute';
+import { PublicRoute } from './PublicRoute/PublicRoute';
 import { refreshUser } from '../redux/authOperation';
 
 export const App = () => {
@@ -20,9 +22,30 @@ export const App = () => {
     <>
       <Routes>
         <Route path="/" element={<SharedLayout />}>
-          <Route path="login" element={<LoginPage />} />
-          <Route path="register" element={<RegisterPage />} />
-          <Route path="contacts" element={<ContactsPage />} />
+          <Route
+            path="login"
+            element={
+              <PublicRoute>
+                <LoginPage />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="register"
+            element={
+              <PublicRoute>
+                <RegisterPage />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="contacts"
+            element={
+              <PrivatRoute>
+                <ContactsPage />
+              </PrivatRoute>
+            }
+          />
           <Route path="*" element={<div>not found</div>} />
         </Route>
       </Routes>
