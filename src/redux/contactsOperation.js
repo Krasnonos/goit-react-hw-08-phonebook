@@ -31,6 +31,23 @@ export const removeContact = createAsyncThunk(
     try {
       await axios.delete(`/contacts/${id}`);
       return id;
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
+
+export const changeContact = createAsyncThunk(
+  'contacts/changeContact',
+  async ({ id, name, number }) => {
+    try {
+      const { data } = await axios.patch(`/contacts/${id}`, {
+        name,
+        number,
+      });
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
   }
 );

@@ -1,11 +1,16 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
-import { createContact } from '../../redux/contactsOperation';
+import { changeContact } from '../../redux/contactsOperation';
 
-export const PhoneBookForm = () => {
-  const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
+export const ChangeContact = ({
+  nameForChange,
+  numberForChange,
+  id,
+  toggleShowChangeMenu,
+}) => {
+  const [name, setName] = useState(() => nameForChange);
+  const [number, setNumber] = useState(() => numberForChange);
   const contacts = useSelector(state => state.contacts.contacts);
   const dispatch = useDispatch();
 
@@ -33,17 +38,15 @@ export const PhoneBookForm = () => {
     );
 
     if (isRepeatContact) {
-      toast.error(` ${name} is already in contacts.`);
+      toast.error(`${name} is already in contacts.`);
       return;
     }
 
     try {
-      dispatch(createContact({ name, number }));
+      dispatch(changeContact({ id, name, number }));
     } catch (error) {}
-    toast.success(`contact ${name} successfully registered`);
-
-    setName('');
-    setNumber('');
+    toast.success(`contact ${name} was successfully changed`);
+    toggleShowChangeMenu();
   };
 
   return (
@@ -52,22 +55,20 @@ export const PhoneBookForm = () => {
         type="text"
         value={name}
         name="name"
-        placeholder="Jhon Dou"
-        required
         minLength={3}
         onChange={onChange}
+        required
       />
       <input
         type="tel"
         value={number}
         name="number"
-        placeholder="+380991111111"
         pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-        required
         onChange={onChange}
+        required
       />
-      <button type="submit">Add new contact</button>
+      <button type="submit">aprove changes</button>
     </form>
   );
 };
