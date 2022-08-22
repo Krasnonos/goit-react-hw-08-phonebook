@@ -3,11 +3,17 @@ import { getContacts, createContact, removeContact } from './contactsOperation';
 
 const initialState = {
   contacts: [],
+  filter: '',
 };
 
 export const contactsSlice = createSlice({
   name: 'contacts',
   initialState,
+  reducers: {
+    changeFilter: (state, action) => {
+      state.filter = action.payload;
+    },
+  },
   extraReducers: {
     [getContacts.fulfilled](state, action) {
       state.contacts = action.payload;
@@ -20,3 +26,5 @@ export const contactsSlice = createSlice({
     },
   },
 });
+
+export const { changeFilter } = contactsSlice.actions;
