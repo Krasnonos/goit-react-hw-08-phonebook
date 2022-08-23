@@ -31,10 +31,8 @@ export const RegisterForm = () => {
 
   const onSubmit = e => {
     e.preventDefault();
-    try {
-      dispatch(userRegistration({ name, email, password }));
-    } catch (error) {}
-    toast.success(`${name} you have successfully registered`);
+
+    dispatch(userRegistration({ name, email, password }));
 
     setName('');
     setEmail('');

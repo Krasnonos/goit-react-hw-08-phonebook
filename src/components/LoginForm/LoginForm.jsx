@@ -27,8 +27,8 @@ export const LoginForm = () => {
 
   const onSubmit = e => {
     e.preventDefault();
+
     dispatch(userLogin({ email, password }));
-    toast.success('you are welcome');
 
     setEmail('');
     setPasword('');
