@@ -7,6 +7,8 @@ export const PhoneBookForm = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const contacts = useSelector(state => state.contacts.contacts);
+  const isLoading = useSelector(state => state.contacts.createContactLoading);
+
   const dispatch = useDispatch();
 
   const onChange = e => {
@@ -67,7 +69,9 @@ export const PhoneBookForm = () => {
         required
         onChange={onChange}
       />
-      <button type="submit">Add new contact</button>
+      <button type="submit" disabled={isLoading}>
+        Add new contact
+      </button>
     </form>
   );
 };

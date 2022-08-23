@@ -1,10 +1,12 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { removeContact } from '../../redux/contactsOperation';
 import { ChangeContact } from '../ChangeContact/ChangeContact';
 
 export const ContactsListItem = ({ contact }) => {
   const [isChangeContact, setIsChangeContact] = useState(false);
+  const isLoading = useSelector(state => state.contacts.removeContactLoading);
+  console.log(isLoading);
   const dispatch = useDispatch();
 
   const toggleShowChangeMenu = () => {
@@ -19,7 +21,11 @@ export const ContactsListItem = ({ contact }) => {
       <button type="button" onClick={toggleShowChangeMenu}>
         change
       </button>
-      <button type="button" onClick={() => dispatch(removeContact(id))}>
+      <button
+        type="button"
+        onClick={() => dispatch(removeContact(id))}
+        disabled={isLoading}
+      >
         delate
       </button>
       {isChangeContact && (

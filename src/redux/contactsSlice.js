@@ -9,6 +9,8 @@ import {
 const initialState = {
   contacts: [],
   filter: '',
+  createContactLoading: false,
+  removeContactLoading: false,
 };
 
 export const contactsSlice = createSlice({
@@ -25,9 +27,23 @@ export const contactsSlice = createSlice({
     },
     [createContact.fulfilled](state, action) {
       state.contacts = [...state.contacts, action.payload];
+      state.createContactLoading = false;
+    },
+    [createContact.rejected](state) {
+      state.createContactLoading = false;
+    },
+    [createContact.pending](state) {
+      state.createContactLoading = true;
     },
     [removeContact.fulfilled](state, action) {
       state.contacts = state.contacts.filter(({ id }) => id !== action.payload);
+      state.removeContactLoading = false;
+    },
+    [removeContact.rejected](state) {
+      state.removeContactLoading = false;
+    },
+    [removeContact.pending](state) {
+      state.removeContactLoading = true;
     },
     [changeContact.fulfilled](state, action) {
       state.contacts = state.contacts.map(contact => {
