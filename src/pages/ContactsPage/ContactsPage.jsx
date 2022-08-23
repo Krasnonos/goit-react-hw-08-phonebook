@@ -13,9 +13,9 @@ export const ContactsPage = () => {
         Log Out
       </button>
       <h1>Contacts</h1>
-      <ContactsList />
       <PhoneBookForm />
       <ContactsFilter />
+      <ContactsList />
     </div>
   );
 };

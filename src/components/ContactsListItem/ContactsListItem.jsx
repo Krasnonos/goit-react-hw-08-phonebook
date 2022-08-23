@@ -6,7 +6,6 @@ import { ChangeContact } from '../ChangeContact/ChangeContact';
 export const ContactsListItem = ({ contact }) => {
   const [isChangeContact, setIsChangeContact] = useState(false);
   const isLoading = useSelector(state => state.contacts.removeContactLoading);
-  console.log(isLoading);
   const dispatch = useDispatch();
 
   const toggleShowChangeMenu = () => {
