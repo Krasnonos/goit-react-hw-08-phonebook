@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
-import { useEffect } from 'react';
+import { useEffect, Suspense } from 'react';
 
 export const SharedLayout = () => {
   const isError = useSelector(state => state.auth.error);
@@ -16,7 +16,9 @@ export const SharedLayout = () => {
     <div>
       <input type="checkbox" id="theme" />
       <label htmlFor="theme"></label>
-      <Outlet />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Outlet />
+      </Suspense>
     </div>
   );
 };

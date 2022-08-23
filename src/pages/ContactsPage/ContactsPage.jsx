@@ -4,7 +4,7 @@ import { ContactsList } from '../../components/ContactsList/ContactsList';
 import { PhoneBookForm } from '../../components/PhoneBookForm/PhoneBookForm';
 import { ContactsFilter } from '../../components/ContactsFilter/ContactsFilter';
 
-export const ContactsPage = () => {
+const ContactsPage = () => {
   const dispatch = useDispatch();
 
   return (
@@ -19,3 +19,5 @@ export const ContactsPage = () => {
     </div>
   );
 };
+
+export default ContactsPage;
