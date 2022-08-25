@@ -3,6 +3,7 @@ import { useEffect, lazy } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { ThemeProvider } from '@emotion/react';
 import { SharedLayout } from './SharedLayout/SharedLayout';
 import { PrivatRoute } from './PrivatRoute/PrivatRoute';
 import { PublicRoute } from './PublicRoute/PublicRoute';
@@ -15,6 +16,7 @@ const NotFound = lazy(() => import('../pages/NotFound/NotFound'));
 export const App = () => {
   const isRefreshing = useSelector(state => state.auth.refreshLoading);
   const dispatch = useDispatch();
+  const theme = useSelector(state => state.theme.theme);
 
   useEffect(() => {
     dispatch(refreshUser());
@@ -22,7 +24,7 @@ export const App = () => {
 
   return (
     !isRefreshing && (
-      <>
+      <ThemeProvider theme={theme}>
         <Routes>
           <Route path="/" element={<SharedLayout />}>
             <Route
@@ -53,7 +55,7 @@ export const App = () => {
           </Route>
         </Routes>
         <ToastContainer autoClose={2000} pauseOnHover />
-      </>
+      </ThemeProvider>
     )
   );
 };

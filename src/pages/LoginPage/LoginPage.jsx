@@ -1,11 +1,15 @@
 import { LoginForm } from '../../components/LoginForm/LoginForm';
+import { Layout, LoginWrap, Tittle } from './LoginPage.styled.js';
 
 const LoginPage = () => {
   return (
-    <div>
-      <h1>LOGIN PAGE</h1>
-      <LoginForm />
-    </div>
+    <>
+      <LoginWrap>
+        <Tittle>LOGIN PAGE</Tittle>
+        <LoginForm />
+      </LoginWrap>
+      <Layout></Layout>
+    </>
   );
 };
 
