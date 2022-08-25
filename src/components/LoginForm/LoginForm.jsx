@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { userLogin } from '../../redux/authOperation';
 import { useDispatch } from 'react-redux';
+import Button from '@material-ui/core/Button';
 import {
   Form,
   Input,
@@ -10,6 +10,8 @@ import {
   Label,
   PasswordIcon,
   EmailIcon,
+  BtnWrap,
+  NavBtn,
 } from './LoginForm.styled';
 
 export const LoginForm = () => {
@@ -60,7 +62,7 @@ export const LoginForm = () => {
         </InputWrap>
 
         <InputWrap>
-          <Label htmlFor="email">Password</Label>
+          <Label htmlFor="password">Password</Label>
           <PasswordIcon />
           <Input
             type="password"
@@ -68,13 +70,21 @@ export const LoginForm = () => {
             name="password"
             id="password"
             onChange={onChange}
-            placeholder="Jhon Dou"
             required
           />
         </InputWrap>
-        <button type="submit">LogIn</button>
+        <BtnWrap>
+          <Button
+            type="submit"
+            variant={'contained'}
+            size={'large'}
+            color={'primary'}
+          >
+            LogIn
+          </Button>
+        </BtnWrap>
       </Form>
-      <NavLink to="/register">Sign up</NavLink>
+      <NavBtn to="/register">Sign up</NavBtn>
     </>
   );
 };

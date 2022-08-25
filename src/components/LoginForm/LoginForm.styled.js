@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { RiLockPasswordFill } from 'react-icons/ri';
 import { MdAlternateEmail } from 'react-icons/md';
+import { NavLink } from 'react-router-dom';
 
 export const Form = styled.form`
   display: flex;
@@ -15,7 +16,7 @@ export const InputWrap = styled.div`
 `;
 
 export const Label = styled.label`
-  font-size: 25px;
+  font-size: 20px;
   margin-left: 20px;
   color: ${p => p.theme.colors.mainText};
 `;
@@ -37,7 +38,7 @@ export const Input = styled.input`
 
 export const PasswordIcon = styled(RiLockPasswordFill)`
   position: absolute;
-  top: 46px;
+  top: 40px;
   left: 10px;
   height: 25px;
   width: 25px;
@@ -46,9 +47,40 @@ export const PasswordIcon = styled(RiLockPasswordFill)`
 
 export const EmailIcon = styled(MdAlternateEmail)`
   position: absolute;
-  top: 46px;
+  top: 40px;
   left: 10px;
   height: 25px;
   width: 25px;
   z-index: 5;
+`;
+
+export const BtnWrap = styled.div`
+  position: absolute;
+  bottom: 60px;
+  left: 130px;
+  width: 92px;
+  height: 42px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+`;
+
+export const NavBtn = styled(NavLink)`
+  position: absolute;
+  bottom: 60px;
+  right: 130px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 92px;
+  height: 42px;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 3px;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-color: #3f51b5;
+  color: white;
+  box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%),
+    0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
 `;

@@ -5,7 +5,7 @@ const LoginPage = () => {
   return (
     <>
       <LoginWrap>
-        <Tittle>LOGIN PAGE</Tittle>
+        <Tittle>Login</Tittle>
         <LoginForm />
       </LoginWrap>
       <Layout></Layout>

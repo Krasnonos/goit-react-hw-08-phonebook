@@ -1,8 +1,19 @@
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { userRegistration } from '../../redux/authOperation';
 import { useDispatch } from 'react-redux';
+import Button from '@material-ui/core/Button';
+import {
+  Form,
+  Input,
+  InputWrap,
+  Label,
+  PasswordIcon,
+  EmailIcon,
+  PersonIcon,
+  BtnWrap,
+  NavBtn,
+} from './RegisterForm.styled';
 
 export const RegisterForm = () => {
   const [name, setName] = useState('');
@@ -41,38 +52,64 @@ export const RegisterForm = () => {
 
   return (
     <>
-      <form onSubmit={onSubmit}>
-        <input
-          type="text"
-          value={name}
-          name="name"
-          onChange={onChange}
-          required
-          minLength={3}
-          maxLength={20}
-          placeholder="Jhon Dou"
-        />
-        <input
-          type="email"
-          value={email}
-          name="email"
-          onChange={onChange}
-          required
-          placeholder="jhondou@mail.com"
-        />
-        <input
-          type="password"
-          value={password}
-          name="password"
-          onChange={onChange}
-          required
-          minLength={7}
-          maxLength={15}
-        />
-        <button type="submit">LogIn</button>
-      </form>
+      <Form onSubmit={onSubmit}>
+        <InputWrap>
+          <Label htmlFor="name">Name</Label>
+          <PersonIcon />
+          <Input
+            type="text"
+            value={name}
+            name="name"
+            id="name"
+            onChange={onChange}
+            required
+            minLength={3}
+            maxLength={20}
+            placeholder="Jhon Dou"
+          />
+        </InputWrap>
 
-      <NavLink to="/login">Sign in</NavLink>
+        <InputWrap>
+          <Label htmlFor="email">Email</Label>
+          <EmailIcon />
+          <Input
+            type="email"
+            value={email}
+            name="email"
+            id="email"
+            onChange={onChange}
+            required
+            placeholder="Johndou@mail.com"
+          />
+        </InputWrap>
+
+        <InputWrap>
+          <Label htmlFor="password">Password</Label>
+          <PasswordIcon />
+          <Input
+            type="password"
+            value={password}
+            name="password"
+            id="password"
+            onChange={onChange}
+            required
+            minLength={7}
+            maxLength={15}
+          />
+        </InputWrap>
+        <BtnWrap>
+          <Button
+            type="submit"
+            variant={'contained'}
+            size={'large'}
+            color={'primary'}
+          >
+            sign up
+          </Button>
+        </BtnWrap>
+      </Form>
+
+      <NavBtn to="/login">login</NavBtn>
     </>
   );
 };
