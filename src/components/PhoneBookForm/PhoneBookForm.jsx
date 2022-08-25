@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { createContact } from '../../redux/contactsOperation';
 import { Button } from '@material-ui/core';
-import { IoSaveOutline } from 'react-icons/io5';
 import {
   Form,
   Input,
@@ -99,9 +98,6 @@ export const PhoneBookForm = () => {
       >
         Add new contact
       </Button>
-      {/* <NavBtn type="submit" disabled={isLoading}>
-        Add new contact
-      </NavBtn> */}
     </Form>
   );
 };

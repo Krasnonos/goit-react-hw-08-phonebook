@@ -5,6 +5,7 @@ export const lightTeme = {
     mainText: 'rgb(29, 29, 29)',
     secondText: 'rgb(140, 140, 140)',
     inputBg: 'rgb(248, 248, 247)',
+    secondBg: 'rgba(255, 255, 255, 0.5)',
   },
   space: [0, 2, 4, 8, 16, 32, 64, 128, 256],
   fontSizes: {
@@ -36,6 +37,7 @@ export const darkTheme = {
     mainText: '#ffffff',
     secondText: '#ffffff',
     inputBg: 'rgb(248, 248, 247)',
+    secondBg: 'rgba(255, 255, 255, 0.5)',
   },
   space: [0, 2, 4, 8, 16, 32, 64, 128, 256],
   fontSizes: {

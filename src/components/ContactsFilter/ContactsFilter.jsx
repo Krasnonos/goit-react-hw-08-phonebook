@@ -7,13 +7,13 @@ export const ContactsFilter = () => {
 
   return (
     <div>
+      <label htmlFor="filter">Filter</label>
       <input
         type="text"
         value={filter}
         onChange={e => dispatch(changeFilter(e.target.value))}
         id="filter"
       />
-      <label htmlFor="filter">Filter</label>
     </div>
   );
 };
