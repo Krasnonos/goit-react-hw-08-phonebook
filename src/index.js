@@ -6,6 +6,7 @@ import { store, persistor } from './redux/store';
 import { Provider } from 'react-redux';
 import { App } from 'components/App';
 import './index.css';
+import './toggleDayNight.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
