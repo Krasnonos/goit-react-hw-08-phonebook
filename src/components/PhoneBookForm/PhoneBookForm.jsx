@@ -2,6 +2,15 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { createContact } from '../../redux/contactsOperation';
+import Button from '@material-ui/core';
+import {
+  Form,
+  Input,
+  InputWrap,
+  Label,
+  PersonIcon,
+  PhoneIcon,
+} from './PhoneBookForm.styled';
 
 export const PhoneBookForm = () => {
   const [name, setName] = useState('');
@@ -49,29 +58,40 @@ export const PhoneBookForm = () => {
   };
 
   return (
-    <form onSubmit={onSubmit}>
-      <input
-        type="text"
-        value={name}
-        name="name"
-        placeholder="Jhon Dou"
-        required
-        minLength={3}
-        onChange={onChange}
-      />
-      <input
-        type="tel"
-        value={number}
-        name="number"
-        placeholder="+380991111111"
-        pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-        title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-        required
-        onChange={onChange}
-      />
-      <button type="submit" disabled={isLoading}>
+    <Form onSubmit={onSubmit}>
+      <InputWrap>
+        <Label htmlFor="name">Name</Label>
+        <PersonIcon />
+        <Input
+          type="text"
+          value={name}
+          name="name"
+          placeholder="Jhon Dou"
+          id="name"
+          required
+          minLength={3}
+          onChange={onChange}
+        />
+      </InputWrap>
+
+      <InputWrap>
+        <Label htmlFor="tel">Phone</Label>
+        <PhoneIcon />
+        <Input
+          type="tel"
+          value={number}
+          name="number"
+          placeholder="+380991111111"
+          id="tel"
+          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+          required
+          onChange={onChange}
+        />
+      </InputWrap>
+      {/* <NavBtn type="submit" disabled={isLoading}>
         Add new contact
-      </button>
-    </form>
+      </NavBtn> */}
+    </Form>
   );
 };

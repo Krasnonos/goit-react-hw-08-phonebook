@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { changeTheme } from '../../redux/themeSlise';
 import { lightTeme, darkTheme } from '../../theme';
-import { Layout, ToggleWrap } from './SharedLayout.styled';
+import { Layout } from './SharedLayout.styled';
 
 export const SharedLayout = () => {
   const isError = useSelector(state => state.auth.error);
@@ -28,17 +28,15 @@ export const SharedLayout = () => {
 
   return (
     <Layout>
-      <ToggleWrap>
-        <input
-          type="checkbox"
-          id="theme"
-          className="toggle--checkbox"
-          onClick={onChecked}
-        />
-        <label htmlFor="theme" className="toggle--label">
-          <span className="toggle--label-background"></span>
-        </label>
-      </ToggleWrap>
+      <input
+        type="checkbox"
+        id="theme"
+        className="toggle--checkbox"
+        onClick={onChecked}
+      />
+      <label htmlFor="theme" className="toggle--label">
+        <span className="toggle--label-background"></span>
+      </label>
       <Suspense fallback={<div>Loading...</div>}>
         <Outlet />
       </Suspense>
