@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { createContact } from '../../redux/contactsOperation';
-import Button from '@material-ui/core';
+import { Button } from '@material-ui/core';
+import { IoSaveOutline } from 'react-icons/io5';
 import {
   Form,
   Input,
@@ -80,6 +81,7 @@ export const PhoneBookForm = () => {
         <Input
           type="tel"
           value={number}
+          contained
           name="number"
           placeholder="+380991111111"
           id="tel"
@@ -89,6 +91,14 @@ export const PhoneBookForm = () => {
           onChange={onChange}
         />
       </InputWrap>
+      <Button
+        type="submit"
+        disabled={isLoading}
+        variant={'contained'}
+        color={'primary'}
+      >
+        Add new contact
+      </Button>
       {/* <NavBtn type="submit" disabled={isLoading}>
         Add new contact
       </NavBtn> */}
