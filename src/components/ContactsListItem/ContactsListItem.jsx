@@ -10,6 +10,7 @@ import {
   Layout,
   DescrWrap,
   Information,
+  Text,
   BtnWrap,
 } from './ContactsListItem.styled';
 
@@ -28,13 +29,13 @@ export const ContactsListItem = ({ contact }) => {
       <Item>
         <DescrWrap>
           <IoPersonCircle size={30} />
-          <Information>name:</Information>
-          <p>{name}</p>
+          <Information>name: </Information>
+          <Text>{name}</Text>
         </DescrWrap>
         <DescrWrap>
           <GiRotaryPhone size={30} />
-          <Information>number:</Information>
-          <p>{number}</p>
+          <Information>number: </Information>
+          <Text>{number}</Text>
         </DescrWrap>
         <BtnWrap>
           <button type="button" onClick={toggleShowChangeMenu}>

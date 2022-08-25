@@ -70,6 +70,7 @@ export const PhoneBookForm = () => {
           id="name"
           required
           minLength={3}
+          maxLength={20}
           onChange={onChange}
         />
       </InputWrap>

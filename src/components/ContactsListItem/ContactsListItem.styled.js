@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 export const Backdrop = styled.li`
   position: relative;
   width: 900px;
-  height: 80px;
+  min-height: 80px;
   margin-left: auto;
   margin-right: auto;
   & + & {
@@ -41,6 +41,13 @@ export const Information = styled.p`
   margin-left: 5px;
   font-size: ${p => p.theme.fontSizes.m};
   font-weight: ${p => p.theme.fontWeights.normal};
+  color: ${p => p.theme.colors.mainText};
+`;
+
+export const Text = styled.p`
+  margin-left: 5px;
+  font-size: ${p => p.theme.fontSizes.m};
+  font-weight: 800;
   color: ${p => p.theme.colors.mainText};
 `;
 
