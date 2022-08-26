@@ -7,11 +7,10 @@ import { GiRotaryPhone } from 'react-icons/gi';
 import Button from '@material-ui/core/Button';
 import {
   Backdrop,
-  Item,
-  Layout,
+  Inform,
   NameWrap,
   PhoneWrap,
-  Information,
+  InformTittle,
   Text,
   BtnWrap,
 } from './ContactsListItem.styled';
@@ -28,15 +27,15 @@ export const ContactsListItem = ({ contact }) => {
   const { id, name, number } = contact;
   return (
     <Backdrop>
-      <Item>
+      <Inform>
         <NameWrap>
           <IoPersonCircle size={30} />
-          <Information>name: </Information>
+          <InformTittle>name: </InformTittle>
           <Text>{name}</Text>
         </NameWrap>
         <PhoneWrap>
           <GiRotaryPhone size={30} />
-          <Information>number: </Information>
+          <InformTittle>number: </InformTittle>
           <Text>{number}</Text>
         </PhoneWrap>
         <BtnWrap>
@@ -60,18 +59,16 @@ export const ContactsListItem = ({ contact }) => {
             Delate
           </Button>
         </BtnWrap>
-
-        {/* {isChangeContact && (
-          <ChangeContact
-            nameForChange={name}
-            numberForChange={number}
-            id={id}
-            setIsChangeContact={setIsChangeContact}
-            toggleShowChangeMenu={toggleShowChangeMenu}
-          />
-        )} */}
-      </Item>
-      <Layout></Layout>
+      </Inform>
+      {isChangeContact && (
+        <ChangeContact
+          nameForChange={name}
+          numberForChange={number}
+          id={id}
+          setIsChangeContact={setIsChangeContact}
+          toggleShowChangeMenu={toggleShowChangeMenu}
+        />
+      )}
     </Backdrop>
   );
 };

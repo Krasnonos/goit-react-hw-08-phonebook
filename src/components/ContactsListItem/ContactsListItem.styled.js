@@ -1,31 +1,23 @@
 import styled from '@emotion/styled';
 
 export const Backdrop = styled.li`
-  position: relative;
   width: 900px;
-  min-height: 80px;
   margin-left: auto;
   margin-right: auto;
+  padding: 10px;
+  background-color: ${p => p.theme.colors.secondBg};
+  border-radius: ${p => p.theme.radii.normal};
   & + & {
     margin-top: 15px;
   }
 `;
 
-export const Item = styled.div`
-  position: absolute;
+export const Inform = styled.div`
   display: flex;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 100%;
-  padding: 10px 20px;
-  z-index: 9;
-`;
-export const Layout = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: ${p => p.theme.colors.secondBg};
-  border-radius: ${p => p.theme.radii.normal};
+  height: 80px;
 `;
 
 export const NameWrap = styled.div`
@@ -41,7 +33,8 @@ export const PhoneWrap = styled.div`
   margin-left: 35px;
 `;
 
-export const Information = styled.p`
+export const InformTittle = styled.p`
+  margin: 0px;
   margin-left: 5px;
   font-size: ${p => p.theme.fontSizes.m};
   font-weight: ${p => p.theme.fontWeights.normal};
@@ -49,6 +42,7 @@ export const Information = styled.p`
 `;
 
 export const Text = styled.p`
+  margin: 0px;
   margin-left: 10px;
   font-size: ${p => p.theme.fontSizes.m};
   font-weight: 800;
@@ -60,4 +54,5 @@ export const BtnWrap = styled.div`
   justify-content: space-between;
   margin-left: auto;
   width: 170px;
+  height: 35px;
 `;
