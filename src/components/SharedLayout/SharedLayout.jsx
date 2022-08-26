@@ -2,9 +2,9 @@ import { Outlet } from 'react-router-dom';
 import { useEffect, useRef, Suspense } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
+import { UserMenu } from '../UserMenu/UserMenu';
 import { changeTheme } from '../../redux/themeSlise';
-import { userLogout } from '../../redux/authOperation';
-import { Layout, Container, Header, NavBtn } from './SharedLayout.styled';
+import { Layout, Container, Header } from './SharedLayout.styled';
 
 export const SharedLayout = () => {
   const isError = useSelector(state => state.auth.error);
@@ -44,11 +44,7 @@ export const SharedLayout = () => {
           <label htmlFor="theme" className="toggle--label">
             <span className="toggle--label-background"></span>
           </label>
-          {isLoggedIn && (
-            <NavBtn type="button" onClick={() => dispatch(userLogout())}>
-              Log Out
-            </NavBtn>
-          )}
+          {isLoggedIn && <UserMenu />}
         </Header>
         <Suspense fallback={<div>Loading...</div>}>
           <Outlet />
