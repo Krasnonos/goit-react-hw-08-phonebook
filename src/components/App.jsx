@@ -55,7 +55,11 @@ export const App = () => {
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
-        <ToastContainer autoClose={2000} pauseOnHover />
+        <ToastContainer
+          autoClose={2000}
+          pauseOnHover
+          theme={isChekedTheme ? 'dark' : 'light'}
+        />
       </ThemeProvider>
     )
   );
