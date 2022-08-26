@@ -1,8 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { lightTeme } from '../theme';
 
 const initialState = {
-  theme: { ...lightTeme },
+  isChecked: false,
 };
 
 export const themeSlice = createSlice({
@@ -10,7 +9,7 @@ export const themeSlice = createSlice({
   initialState,
   reducers: {
     changeTheme: (state, action) => {
-      state.theme = action.payload;
+      state.isChecked = action.payload.isChecked;
     },
   },
 });
