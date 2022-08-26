@@ -3,11 +3,14 @@ import { useEffect, Suspense } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { changeTheme } from '../../redux/themeSlise';
+import { userLogout } from '../../redux/authOperation';
 import { lightTeme, darkTheme } from '../../theme';
-import { Layout } from './SharedLayout.styled';
+import { Layout, Container, Header, NavBtn } from './SharedLayout.styled';
 
 export const SharedLayout = () => {
   const isError = useSelector(state => state.auth.error);
+  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -28,18 +31,27 @@ export const SharedLayout = () => {
 
   return (
     <Layout>
-      <input
-        type="checkbox"
-        id="theme"
-        className="toggle--checkbox"
-        onClick={onChecked}
-      />
-      <label htmlFor="theme" className="toggle--label">
-        <span className="toggle--label-background"></span>
-      </label>
-      <Suspense fallback={<div>Loading...</div>}>
-        <Outlet />
-      </Suspense>
+      <Container>
+        <Header>
+          <input
+            type="checkbox"
+            id="theme"
+            className="toggle--checkbox"
+            onClick={onChecked}
+          />
+          <label htmlFor="theme" className="toggle--label">
+            <span className="toggle--label-background"></span>
+          </label>
+          {isLoggedIn && (
+            <NavBtn type="button" onClick={() => dispatch(userLogout())}>
+              Log Out
+            </NavBtn>
+          )}
+        </Header>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Outlet />
+        </Suspense>
+      </Container>
     </Layout>
   );
 };

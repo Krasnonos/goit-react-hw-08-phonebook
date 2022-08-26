@@ -6,13 +6,13 @@ import { ContactsFilter } from '../../components/ContactsFilter/ContactsFilter';
 import { NavBtn, Tittle } from './ContactsPage.styled';
 
 const ContactsPage = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   return (
     <div>
-      <NavBtn type="button" onClick={() => dispatch(userLogout())}>
+      {/* <NavBtn type="button" onClick={() => dispatch(userLogout())}>
         Log Out
-      </NavBtn>
+      </NavBtn> */}
       <Tittle>Contacts</Tittle>
       <PhoneBookForm />
       <ContactsFilter />

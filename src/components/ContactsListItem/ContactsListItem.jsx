@@ -4,11 +4,13 @@ import { removeContact } from '../../redux/contactsOperation';
 import { ChangeContact } from '../ChangeContact/ChangeContact';
 import { IoPersonCircle } from 'react-icons/io5';
 import { GiRotaryPhone } from 'react-icons/gi';
+import Button from '@material-ui/core/Button';
 import {
   Backdrop,
   Item,
   Layout,
-  DescrWrap,
+  NameWrap,
+  PhoneWrap,
   Information,
   Text,
   BtnWrap,
@@ -27,29 +29,39 @@ export const ContactsListItem = ({ contact }) => {
   return (
     <Backdrop>
       <Item>
-        <DescrWrap>
+        <NameWrap>
           <IoPersonCircle size={30} />
           <Information>name: </Information>
           <Text>{name}</Text>
-        </DescrWrap>
-        <DescrWrap>
+        </NameWrap>
+        <PhoneWrap>
           <GiRotaryPhone size={30} />
           <Information>number: </Information>
           <Text>{number}</Text>
-        </DescrWrap>
+        </PhoneWrap>
         <BtnWrap>
-          <button type="button" onClick={toggleShowChangeMenu}>
-            change
-          </button>
-          <button
+          <Button
             type="button"
+            color={'primary'}
+            size={'small'}
+            variant={'outlined'}
+            onClick={toggleShowChangeMenu}
+          >
+            Change
+          </Button>
+          <Button
+            color={'secondary'}
+            size={'small'}
+            type="button"
+            variant={'outlined'}
             onClick={() => dispatch(removeContact(id))}
             disabled={isLoading}
           >
-            delate
-          </button>
+            Delate
+          </Button>
         </BtnWrap>
-        {isChangeContact && (
+
+        {/* {isChangeContact && (
           <ChangeContact
             nameForChange={name}
             numberForChange={number}
@@ -57,7 +69,7 @@ export const ContactsListItem = ({ contact }) => {
             setIsChangeContact={setIsChangeContact}
             toggleShowChangeMenu={toggleShowChangeMenu}
           />
-        )}
+        )} */}
       </Item>
       <Layout></Layout>
     </Backdrop>

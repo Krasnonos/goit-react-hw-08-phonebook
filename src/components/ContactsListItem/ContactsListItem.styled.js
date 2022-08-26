@@ -14,6 +14,7 @@ export const Backdrop = styled.li`
 export const Item = styled.div`
   position: absolute;
   display: flex;
+  align-items: center;
   width: 100%;
   height: 100%;
   padding: 10px 20px;
@@ -27,14 +28,17 @@ export const Layout = styled.div`
   border-radius: ${p => p.theme.radii.normal};
 `;
 
-export const DescrWrap = styled.div`
+export const NameWrap = styled.div`
   display: flex;
   align-items: center;
   min-width: 330px;
+`;
 
-  & + & {
-    margin-left: 40px;
-  }
+export const PhoneWrap = styled.div`
+  display: flex;
+  align-items: center;
+  min-width: 230px;
+  margin-left: 35px;
 `;
 
 export const Information = styled.p`
@@ -45,12 +49,15 @@ export const Information = styled.p`
 `;
 
 export const Text = styled.p`
-  margin-left: 5px;
+  margin-left: 10px;
   font-size: ${p => p.theme.fontSizes.m};
   font-weight: 800;
   color: ${p => p.theme.colors.mainText};
 `;
 
 export const BtnWrap = styled.div`
+  display: flex;
+  justify-content: space-between;
   margin-left: auto;
+  width: 170px;
 `;
