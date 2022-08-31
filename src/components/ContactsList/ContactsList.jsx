@@ -14,7 +14,7 @@ export const ContactsList = () => {
   }, [dispatch]);
 
   const visibleContacts = contacts.filter(({ name }) =>
-    name.toLowerCase().includes(filter)
+    name.toLowerCase().includes(filter.toLowerCase())
   );
 
   return (
